@@ -10,8 +10,8 @@ for (let i = 0; i < myNodelist.length; i++) {
 let close = document.getElementsByClassName("close");
 for (let i = 0; i < close.length; i++) {
   close[i].onclick = function() {
-    let div = this.parentElement;
-    div.style.display = "none";
+    var elem = document.querySelector('LI');
+	elem.parentNode.removeChild(elem);
   }
 }
 
@@ -32,7 +32,7 @@ function newElement() {
   } else {
     document.getElementById("myUl").appendChild(li);
   }
-  document.getElementById("myInput").value = "";
+  document.getElementById("myInput").value = " ";
 
   let span = document.createElement("SPAN");
   let txt = document.createTextNode("\u292b");
@@ -42,8 +42,15 @@ function newElement() {
 
   for (let i = 0; i < close.length; i++) {
     close[i].onclick = function() {
-      let div = this.parentElement;
-      div.style.display = "none";
+    var elem = document.querySelector('LI');
+	elem.parentNode.removeChild(elem);
     }
   }
 }
+let input = document.getElementById("myInput");
+input.addEventListener("keyup", function(event){
+	if(event.keyCode === 13) {
+		event.preventDefault();
+		document.getElementById("btn1").click();
+	}
+	});
